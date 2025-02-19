@@ -1,0 +1,370 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.user-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #4a6ee0;
+    color: white;
+}
+
+.btn-success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-rows: repeat(6, 60px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.board-row {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 5px;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #d3d6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    height: 58px;
+    border-radius: 4px;
+    background-color: #d3d6da;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    flex: 1;
+    min-width: 40px;
+}
+
+.key.wide {
+    flex: 1.5;
+    font-size: 12px;
+}
+
+.key:hover {
+    background-color: #bbbfc3;
+}
+
+.key.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.key.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+.key.absent {
+    background-color: #787c7e;
+    color: white;
+}
+
+.tile.correct {
+    background-color: #6aaa64;
+    border-color: #6aaa64;
+    color: white;
+}
+
+.tile.present {
+    background-color: #c9b458;
+    border-color: #c9b458;
+    color: white;
+}
+
+.tile.absent {
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: white;
+}
+
+.tile.active {
+    border-color: #878a8c;
+    border-width: 2px;
+}
+
+.tile.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+.message {
+    height: 30px;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.instructions {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Auth Forms */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 10px;
+}
+
+.form-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.form-footer button {
+    background: none;
+    border: none;
+    color: #4a6ee0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+/* Leaderboard */
+.leaderboard {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.leaderboard-table th {
+    font-weight: bold;
+    color: #555;
+}
+
+.leaderboard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.empty-leaderboard {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .board-row {
+        grid-template-columns: repeat(5, 50px);
+    }
+    
+    .game-board {
+        grid-template-rows: repeat(6, 50px);
+    }
+    
+    .tile {
+        font-size: 1.5rem;
+    }
+    
+    .key {
+        height: 50px;
+        min-width: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .board-row {
+        grid-template-columns: repeat(5, 40px);
+    }
+    
+    .game-board {
+        grid-template-rows: repeat(6, 40px);
+    }
+    
+    .tile {
+        font-size: 1.2rem;
+    }
+    
+    .key {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+}
